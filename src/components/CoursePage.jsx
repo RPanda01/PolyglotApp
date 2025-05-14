@@ -19,6 +19,9 @@ export default function CoursePage() {
         <button className="button" onClick={() => navigate(`/courses/${lang}/sprint`)}>
           ⚡ Спринт: тест материала на скорость
         </button>
+        <button className="button" onClick={() => navigate(`/courses/${lang}/ai`)}>
+          🧠 Тренировка с PolyglotAI
+        </button>
         <button
           className="button"
           onClick={() => navigate('/courses')}

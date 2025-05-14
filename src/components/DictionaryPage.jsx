@@ -1,5 +1,4 @@
 import { useState, useMemo } from 'react'
-import wordsData from '../assets/wordsForEnglishCourse.json'
 import wordsEn from '../assets/wordsForEnglishCourse.json'
 import wordsFr from '../assets/wordsForFrenchCourse.json'
 import wordsEs from '../assets/wordsForSpanishCourse.json'

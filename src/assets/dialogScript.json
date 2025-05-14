@@ -1,0 +1,113 @@
+[
+  {
+    "question": "Hi! What's your name?",
+    "question_ru": "Привет! Как тебя зовут?",
+    "expected": ["my name is", "i'm", "i am"],
+    "responses": [
+      {
+        "text": "Nice to meet you!",
+        "translation": "Приятно познакомиться!"
+      },
+      {
+        "text": "Cool name!",
+        "translation": "Классное имя!"
+      }
+    ],
+    "second_responses": [
+      {
+        "text": "Let`s move on",
+        "translation": "Давай продолжим"
+      },
+      {
+        "text": "I want to ask you another thing",
+        "translation": "Хочу спросить тебя ещё кое-что"
+      },
+      {
+        "text": "Let`s talk more",
+        "translation": "Давай поболтаем ещё"
+      },
+      {
+        "text": "I like chatting with you :)",
+        "translation": "Мне нравится с тобой общаться :)"
+      },
+      {
+        "text": "Let`s chat more!",
+        "translation": "Давай поболтаем ещё!"
+      }
+    ]
+  },
+  {
+    "question": "What's your favorite hobby?",
+    "question_ru": "Какое у тебя любимое хобби?",
+    "expected": ["i like", "my hobby is", "i enjoy", "my favorite hobby is"],
+    "responses": [
+      {
+        "text": "That sounds fun!",
+        "translation": "Звучит весело!"
+      },
+      {
+        "text": "I also enjoy that sometimes.",
+        "translation": "Я тоже иногда этим занимаюсь."
+      }
+    ],
+    "second_responses": [
+      {
+        "text": "Hobbies help us relax and grow.",
+        "translation": "Хобби помогают нам расслабляться и развиваться."
+      },
+      {
+        "text": "I want to ask you another thing",
+        "translation": "Хочу спросить тебя ещё кое-что"
+      },
+      {
+        "text": "Hobbies help us relax and grow. Let`s talk more!",
+        "translation": "Хобби помогают расслабиться. Давай поговорим ещё!"
+      },
+      {
+        "text": "I like chatting with you :)",
+        "translation": "Мне нравится с тобой общаться :)"
+      },
+      {
+        "text": "Let`s chat more!",
+        "translation": "Давай поболтаем ещё!"
+      }
+    ]
+  },
+  {
+    "question": "Why are you learning English?",
+    "question_ru": "Почему ты учишь английский?",
+    "expected": ["because", "i want", "i need"],
+    "responses": [
+      {
+        "text": "Great motivation!",
+        "translation": "Отличная мотивация!"
+      },
+      {
+        "text": "That's a good reason to learn!",
+        "translation": "Это хорошая причина для изучения!"
+      }
+    ],
+    "second_responses": [
+      {
+        "text": "Let`s move on",
+        "translation": "Давай продолжим"
+      },
+      {
+        "text": "I want to ask you another thing",
+        "translation": "Хочу спросить тебя ещё кое-что"
+      },
+      {
+        "text": "Let`s talk more",
+        "translation": "Давай поболтаем ещё"
+      },
+      {
+        "text": "I like chatting with you :)",
+        "translation": "Мне нравится с тобой общаться :)"
+      },
+      {
+        "text": "Let`s chat more!",
+        "translation": "Давай поболтаем ещё!"
+      }
+    ]
+  }
+]

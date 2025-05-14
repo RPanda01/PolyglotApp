@@ -1,0 +1,134 @@
+.ai-container {
+  max-width: 50vw;
+  margin: 30px auto;
+  padding: 20px;
+  background: linear-gradient(to bottom, #e0f2ff, #b3daff);
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  font-family: sans-serif;
+}
+
+.brand {
+  color: #0055cc;
+}
+
+.translation summary {
+  font-size: 13px;
+  color: rgb(50 116 211);
+  cursor: pointer;
+  outline: none;
+  user-select: none;
+  margin-top: 4px;
+  margin-bottom: 2px;
+}
+
+.translation summary:hover {
+  color: rgb(59 100 159);
+}
+
+.translation p {
+  margin: 4px 0 0 0;
+  font-size: 14px;
+  color: #333;
+}
+
+
+.chat-box {
+  background: #fff;
+  border-radius: 10px;
+  padding: 15px;
+  min-height: 20vh;
+  max-height: 70vh;
+  overflow-y: auto;
+  margin-bottom: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.back-button {
+  background-color: #0055cc;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 10px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.back-button:hover {
+  background-color: #003f99;
+}
+
+.msg {
+  max-width: 80%;
+  padding: 10px 14px;
+  border-radius: 12px;
+  font-size: 16px;
+  line-height: 1.4;
+}
+
+.msg.bot {
+  background-color: #eef3ff;
+  align-self: flex-start;
+}
+
+.msg.user {
+  background-color: #d4f8d4;
+  align-self: flex-end;
+}
+
+.input-area {
+  display: flex;
+  gap: 10px;
+}
+
+input[type='text'] {
+  flex: 1;
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+button {
+  padding: 10px 16px;
+  font-size: 16px;
+  background-color: #0055cc;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #003f99;
+}
+
+.dots span {
+  animation: blink 1.5s infinite;
+  margin: 0 1px;
+}
+
+.dots span:nth-child(2) {
+  animation-delay: 0.2s;
+}
+.dots span:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+@keyframes blink {
+  0%, 80%, 100% {
+    opacity: 0;
+  }
+  40% {
+    opacity: 1;
+  }
+}
