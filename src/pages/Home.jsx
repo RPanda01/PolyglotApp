@@ -6,7 +6,7 @@ export default function Home() {
 
   return (
     <div className="container">
-       <div style={{
+      <div style={{
         display: 'flex',
         alignItems: 'center',
         gap: '1rem',
@@ -19,12 +19,38 @@ export default function Home() {
         />
         <h1 className="heading" style={{ margin: 0 }}>Polyglot</h1>
       </div>
-      <p className="subtext">Добро пожаловать! <p></p>Начни изучение языков прямо сейчас</p>
-      <button className="button" onClick={() => navigate('/login')}>
+      <div className="home-description">
+  <h3>Открой мир языков вместе с Polyglot</h3>
+  <p>
+    Polyglot — это твой личный помощник в изучении иностранных языков. Учись в удобном темпе,
+    играй, запоминай и отслеживай прогресс — всё в одном приложении.
+  </p>
+
+  <div className="features-grid">
+  <div className="features-column">
+    <div className="feature-item"><span>📚</span> 5 уровней сложности — от A1 до C1</div>
+    <div className="feature-item"><span>⚡</span> Спринт-игры на скорость запоминания</div>
+    <div className="feature-item"><span>🎯</span> Индивидуальный путь обучения</div>
+  </div>
+
+  <div className="features-divider"></div>
+
+  <div className="features-column">
+    <div className="feature-item"><span>🧠</span> Интерактивный словарь с тренировками</div>
+    <div className="feature-item"><span>📈</span> Прогресс по каждому курсу и уровню</div>
+    <div className="feature-item"><span>🎨</span> Аватар и настройка профиля</div>
+  </div>
+</div>
+
+  <p style={{ marginTop: '3rem' }}>
+    Начни изучать новый язык уже сегодня — это просто, бесплатно и весело!
+  </p>
+</div>
+
+      <button data-testid="home-login" className="button" onClick={() => navigate('/login')}>
         Войти
       </button>
 
-      {/* SVG-декор внизу */}
       <svg
         viewBox="0 0 1440 320"
         style={{

@@ -1,5 +1,5 @@
 import { useParams, useNavigate } from 'react-router-dom'
-import DictionaryPage from '../components/DictionaryPage'
+import DictionaryPage from '../pages/DictionaryPage'
 import LogoHeader from '../components/logoHeader'
 
 export default function DictionaryRoute() {

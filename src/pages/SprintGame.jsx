@@ -10,7 +10,7 @@ const courseWords = {
   spanish: wordsEs
 }
 
-export default function SprintGame({ level = 'A1', courseId }) {
+export default function SprintGame({ courseId, level, refreshLevel }) {
   const navigate = useNavigate()
   const [currentIndex, setCurrentIndex] = useState(0)
   const [score, setScore] = useState(0)
@@ -24,21 +24,67 @@ export default function SprintGame({ level = 'A1', courseId }) {
 
   useEffect(() => {
     if (timeLeft <= 0 || currentIndex >= levelWords.length) {
-      const successRate = score / levelWords.length
-      if (successRate >= 0.95) {
-        setNextLevelUnlocked(true)
-        // Здесь можно обновить состояние в БД или localStorage
-      }
       setIsFinished(true)
-      return
     }
 
-    const timer = setTimeout(() => {
-      setTimeLeft(timeLeft - 1)
-    }, 1000)
+    if (!isFinished) {
+      const timer = setTimeout(() => {
+        setTimeLeft(prev => prev - 1)
+      }, 1000)
+      return () => clearTimeout(timer)
+    }
+  }, [timeLeft, currentIndex, isFinished])
 
+  useEffect(() => {
+  if (timeLeft <= 0 || currentIndex >= levelWords.length) {
+    setIsFinished(true)
+
+    const successRate = score / levelWords.length
+    const user = JSON.parse(localStorage.getItem('user'))
+    const userId = user?.id
+    const nextLevel = getNextLevel(level)
+
+    if (userId) {
+      const updates = {
+        sprintScore: successRate >= 0.95 ? 0 : Math.round(successRate * 100)
+      }
+
+      if (successRate >= 0.95 && nextLevel) {
+        updates.levelCode = nextLevel
+        updates.completedWords = 0
+        setNextLevelUnlocked(true)
+      }
+
+      fetch(`http://localhost:5000/api/course/${userId}/update`, {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          courseName: courseId,
+          updates
+        })
+      })
+        .then(res => res.json())
+        .then(data => {
+          if (data.success) {
+            console.log('Данные обновлены:', data)
+          } else {
+            console.error('Ошибка при обновлении:', data.message)
+          }
+        })
+        .catch(err => {
+          console.error('Ошибка запроса:', err)
+        })
+    }
+  }
+
+  if (!isFinished) {
+    const timer = setTimeout(() => {
+      setTimeLeft(prev => prev - 1)
+    }, 1000)
     return () => clearTimeout(timer)
-  }, [timeLeft, currentIndex])
+  }
+}, [timeLeft, currentIndex, isFinished])
+
 
   const handleAnswer = (answer) => {
     if (answer === currentWord.correct) {
@@ -47,13 +93,15 @@ export default function SprintGame({ level = 'A1', courseId }) {
     setCurrentIndex(currentIndex + 1)
   }
 
-  const restartGame = () => {
-    setCurrentIndex(0)
-    setScore(0)
-    setTimeLeft(30)
-    setIsFinished(false)
-    setNextLevelUnlocked(false)
-  }
+const restartGame = async () => {
+  await refreshLevel()  // вызываем функцию из родителя
+
+  setCurrentIndex(0)
+  setScore(0)
+  setTimeLeft(30)
+  setIsFinished(false)
+  setNextLevelUnlocked(false)
+}
 
   const getNextLevel = (level) => {
     const levels = ['A1', 'A2', 'B1', 'B2', 'C1']

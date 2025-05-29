@@ -4,8 +4,8 @@ import Courses from './pages/Courses'
 import Login from './pages/Login'
 import Profile from './pages/Profile'
 
-import CoursePage from './components/CoursePage'
-import AITrainer from './components/AITrainer'
+import CoursePage from './pages/CoursePage'
+import AITrainer from './pages/AITrainer'
 import DictionaryRoute from './routes/DictionaryRoute'
 import SprintRoute from './routes/SprintRoutes'
 const router = createBrowserRouter([

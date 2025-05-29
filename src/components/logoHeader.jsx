@@ -7,7 +7,7 @@ export default function LogoHeader() {
   return (
     <div
       style={{
-        position: 'fixed', // ← фиксированное позиционирование
+        position: 'fixed',
         top: '1rem',
         left: '1rem',
         cursor: 'pointer',

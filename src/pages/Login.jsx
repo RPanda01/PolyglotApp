@@ -10,16 +10,35 @@ export default function Login() {
   const [error, setError] = useState('')
   const [showRegister, setShowRegister] = useState(false)
 
-  const handleLogin = (e) => {
-    e.preventDefault()
+  const handleLogin = async (e) => {
+  e.preventDefault()
+  setError('')
 
-    if (username === 'user' && password === '1111') {
-      setError('')
+  try {
+    const response = await fetch('http://localhost:5000/api/auth/login', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        login: username,
+        password: password
+      })
+    })
+
+    const data = await response.json()
+
+    if (data.success) {
+      localStorage.setItem('user', JSON.stringify(data.user))  // ← сохраняем весь объект
       navigate('/profile')
     } else {
-      setError('Неверный логин или пароль')
+      setError(data.message || 'Ошибка входа')
     }
+  } catch (err) {
+    setError('Ошибка подключения к серверу')
   }
+}
+
 
   return (
     <div className="container">
@@ -50,10 +69,10 @@ export default function Login() {
               className="input"
               required
             />
-            <button className="button" type="submit">Войти</button>
+            <button className="button" type="submit" data-testid="login-submit">Войти</button>
           </form>
 
-          {error && <p style={{ color: 'red', marginTop: '1rem' }}>{error}</p>}
+          {error && <p data-testid="login-error" style={{ color: 'red', marginTop: '1rem' }}>{error}</p>}
 
           <p style={{ marginTop: '1.5rem' }}>
             Нет аккаунта?{' '}
